@@ -1,2 +1,2 @@
 # LeetCode
-LeetCode answer recorder 
+LeetCode answer recorder. It is only for recording LeetCode practise answer.
