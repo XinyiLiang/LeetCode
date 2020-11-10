@@ -23,15 +23,31 @@ class Solution {
                 A[i][x] =1;
         }
     }
+       return A;
         
+    }
+}
+
+
+//second way:
+class Solution {
+    public int[][] flipAndInvertImage(int[][] A) {
+      
+    int row = A.length;
+    int col = A[0].length;
+    int temp=0;
+   
+    for (int i = 0; i < row; i++) {
+      for(int j = 0; j < Math.round(col/2); j++) {
+            
+          temp = A[i][j];
+          A[i][j] = A[i][col-j-1]^1;
+          A[i][col-j-1] = temp^1;
+      }
+        if (col%2 != 0)
+            A[i][Math.round(col/2)]=A[i][Math.round(col/2)] ^ 1 ;
         
-       return A; 
-        
-        
-        
-        
-        
-        
-        
+    } 
+       return A;        
     }
 }
