@@ -20,30 +20,35 @@
  * Constraints:
  * 1 <= n <= 105
  * n <= k <= 26 * n
+ *
+ * this solution : runtime beats 56.06%, memory usage beats 99.24%
+ *
  */
+
+
 
 class Solution {
     
     public String getSmallestString(int n, int k) {
 
         char[] ans = new char[n];
-        Arrays.fill(ans, 'a');
         
         int count = n;
-        int i = n-1;
+        int i= n-1;
         
-        while( count != k && i>=0)
+        while( n-1+26 < k)
         {
-               for( int j = 25; j>=0; j--)
-               {
-                    if(count+j<=k)
-                    {
-                        ans[i] = (char)('a'+j);
-                        count = count+j;
-                        i--;
-                        break;
-                    }
-               }
+            ans[i] = 'z';
+            n = n-1+26;
+            i--;
+        }
+        
+        ans[i] = (char)('a'+ k - n );
+        i--;
+        while( i>=0)
+        {
+            ans[i] = 'a';
+            i--;
         }
         
         return String.valueOf(ans);
